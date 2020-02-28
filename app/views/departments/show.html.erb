@@ -1,0 +1,66 @@
+<h1 class="index-title post-title"><%= @department.category%></h1>
+<div class="clearfix">
+    <div class="contents-left">
+        <div class="maxim-elements">
+        <% @posts.each do |post| %>
+            <div class="maxim-element clearfix">
+                <p class="maxim">
+                    <% if user_signed_in? %>
+                        <% if current_user.id==1%>
+                            <%= link_to(post.content,"/posts/#{post.id}") %>
+                        <% else %>
+                            <%= post.content%>
+                        <% end %>
+                    <% else%>
+                        <%= post.content%>
+                    <% end %>
+                </p>
+                <% if post.content_eng!="" %>
+                    <p class="maxim-eng">
+                        <%= post.content_eng%>
+                    </p>
+                <% end %>
+                <div class="author-info">
+                    <p class="author-name">
+                        <%= post.author%>
+                    </p>
+                    <br class="author-info-br">
+                    <br class="author-info-br">
+                    <p class="biography">
+                        <%= post.biography%>
+                    </p>
+                </div>
+                <br>
+                <div class="like-container">
+                    <% @likes_count=Like.where(post_id: post.id).count%>
+                    <% if user_signed_in? %>
+                        <% if Like.find_by(user_id: current_user.id,post_id: post.id) %>
+                            <%= link_to("/posts/#{post.id}")do %>
+                                <span class="fa fa-heart like-btn-unlike"></span>
+                            <% end%>
+                        <% else%>
+                            <%= link_to("/posts/#{post.id}")do %>
+                                <span class="fa fa-heart like-btn"></span>
+                            <% end%>
+                        <% end %>
+                    <% else%>
+                        <%= link_to("/posts/#{post.id}")do %>
+                            <span class="fa fa-heart like-btn-unlike"></span>
+                        <% end%>
+                    <% end %>
+                    <span class="likes-count"><%= @likes_count%></span>
+                </div>
+            </div>
+        <% end %>
+        </div>
+    </div>
+    <div class="contents-right">
+        <h3>名言を探す</h3>
+        <% @departments.each do |department| %>
+            <%= link_to("/departments/#{department.id}")do %>
+                <%= department.category%>
+            <% end%>
+            <br>
+        <% end %>
+    </div>
+</div>

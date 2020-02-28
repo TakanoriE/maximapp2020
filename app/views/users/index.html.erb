@@ -1,0 +1,25 @@
+<div class="user-container">
+  <h1 class="user-index-title user-title">ユーザー一覧</h1>
+  <div class="user-index-container clearfix">
+    <table class="user-table">
+        <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+            <th>ログイン回数</th>
+            <th>最終ログイン日時</th>
+            <th>前回ログイン日時</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id%></td>
+                <td><%= user.username%></td>
+                <td><%= user.email%></td>
+                <td><%= user.sign_in_count%></td>
+                <td><%= user.current_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
+                <td><%= user.last_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
+            </tr>
+        <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<h1 class="edit-post-title post-title">編集</h1>
+<%= form_tag("/posts/#{@post.id}/update")do%>
+    <div class="form">
+    <div class="form-body clearfix">
+        <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+            <%= message %>
+            </div>
+        <% end %>
+        <p>名言</p>
+        <textarea class="textarea" name="content"><%= @post.content %></textarea>
+        <p>名言（訳）</p>
+        <textarea class="textarea" name="content_eng"><%= @post.content_eng %></textarea>
+        <p>発言者</p>
+        <input type="text" name="author" class="author-input" value="<%= @post.author%>">
+        <p>経歴</p>
+        <input type="text" name="biography" class="biography-input" value="<%= @post.biography%>">
+        <br>
+        <br>
+        <p>
+            現在のカテゴリは
+            <% if @post.category==1%>
+                勇気
+            <% elsif @post.category==2%>
+                希望
+            <% elsif @post.category==3%>
+                愛
+            <% elsif @post.category==4%>
+                努力
+            <% elsif @post.category==5%>
+                仕事
+            <% elsif @post.category==6%>
+                人間関係
+            <% elsif @post.category==7%>
+                夢
+            <% elsif @post.category==8%>
+                時間
+            <% elsif @post.category==9%>
+                お金
+            <% elsif @post.category==10%>
+                英語
+            <% elsif @post.category==11%>
+                歌詞
+            <% elsif @post.category==12%>
+                創作物
+            <% end%>
+        </p>
+        <div class="radio-btn-container">
+            <input type="radio" name="status" value="1" class="radio-btn radio-btn-top">勇気
+            <input type="radio" name="status" value="2" class="radio-btn">希望
+            <br class="radio-br">
+            <input type="radio" name="status" value="3" class="radio-btn">愛
+            <input type="radio" name="status" value="4" class="radio-btn">努力
+            <br>
+            <input type="radio" name="status" value="5" class="radio-btn">仕事
+            <input type="radio" name="status" value="6" class="radio-btn">人間関係
+            <br class="radio-br">
+            <input type="radio" name="status" value="7" class="radio-btn">夢
+            <input type="radio" name="status" value="8" class="radio-btn">時間
+            <br>
+            <input type="radio" name="status" value="9" class="radio-btn">お金
+            <input type="radio" name="status" value="10" class="radio-btn">英語
+            <br class="radio-br">
+            <input type="radio" name="status" value="11" class="radio-btn">歌詞
+            <input type="radio" name="status" value="12" class="radio-btn">創作物
+            <br>
+            <input type="submit" value="編集" class="post-btn">
+        </div>
+    </div>
+    </div>
+<% end%>

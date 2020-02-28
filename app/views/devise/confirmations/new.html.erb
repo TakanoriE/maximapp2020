@@ -1,0 +1,19 @@
+<div class="user-container">
+  <h1 class="resend-confirmation-title user-title">確認メールの再送信</h1>
+  <div class="resend-form user-form clearfix">
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource, class: "error-messages" %>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "確認メールの再送信", class: "resend-confirmation-btn user-btn" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

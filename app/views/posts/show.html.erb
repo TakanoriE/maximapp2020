@@ -1,0 +1,48 @@
+<h1 class="show-title">投稿詳細画面</h1>
+<div class="maxim-elements">
+    <div class="maxim-element clearfix">
+        <p class="maxim">
+            <%= @post.content%>
+        </p>
+        <% if @post.content_eng!="" %>
+            <p class="maxim-eng">
+                <%= @post.content_eng%>
+            </p>
+        <% end %>
+        <div class="author-info">
+            <p class="author-name">
+                <%= @post.author%>
+            </p>
+            <br class="author-info-br">
+            <br class="author-info-br">
+            <p class="biography">
+                <%= @post.biography%>
+            </p>
+        </div>
+        <br>
+        <br>
+        <% if user_signed_in? %>
+            <% if current_user.id==1 %>
+                <div class="btn-container">
+                    <%= link_to("編集","/posts/#{@post.id}/edit") %>
+                    <%= link_to("削除", "/posts/#{@post.id}/destroy",{method:"post"}) %>
+                </div>
+                <br><br>
+            <% end %>
+            <div class="like-container">
+                <% if user_signed_in? %>
+                    <% if Like.find_by(user_id: current_user.id,post_id: @post.id) %>
+                        <%= link_to("/posts/#{@post.id}/likeShow")do %>
+                            <span class="fa fa-heart like-btn-unlike"></span>
+                        <% end%>
+                    <% else%>
+                        <%= link_to("/posts/#{@post.id}/likeShow")do %>
+                            <span class="fa fa-heart like-btn"></span>
+                        <% end%>
+                    <% end %>
+                    <span class="likes-count"><%= @likes_count%></span>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>

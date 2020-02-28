@@ -1,0 +1,43 @@
+<h1 class="new-post-title post-title">新規投稿</h1>
+<%= form_tag("/posts/create")do%>
+    <div class="form">
+    <div class="form-body clearfix">
+        <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+            <%= message %>
+            </div>
+        <% end %>
+        <p>名言</p>
+        <textarea class="textarea" name="content"><%= @post.content %></textarea>
+        <p>名言（訳）</p>
+        <textarea class="textarea" name="content_eng"><%= @post.content_eng %></textarea>
+        <p>発言者</p>
+        <input type="text" name="author" class="author-input" value="<%= @post.author%>">
+        <p>経歴</p>
+        <input type="text" name="biography" class="biography-input" value="<%= @post.biography%>">
+        <br>
+        <br>
+        <div class="radio-btn-container">
+            <input type="radio" name="status" value="1" class="radio-btn radio-btn-top">勇気
+            <input type="radio" name="status" value="2" class="radio-btn">希望
+            <br class="radio-br">
+            <input type="radio" name="status" value="3" class="radio-btn">愛
+            <input type="radio" name="status" value="4" class="radio-btn">努力
+            <br>
+            <input type="radio" name="status" value="5" class="radio-btn">仕事
+            <input type="radio" name="status" value="6" class="radio-btn">人間関係
+            <br class="radio-br">
+            <input type="radio" name="status" value="7" class="radio-btn">夢
+            <input type="radio" name="status" value="8" class="radio-btn">時間
+            <br>
+            <input type="radio" name="status" value="9" class="radio-btn">お金
+            <input type="radio" name="status" value="10" class="radio-btn">英語
+            <br class="radio-br">
+            <input type="radio" name="status" value="11" class="radio-btn">歌詞
+            <input type="radio" name="status" value="12" class="radio-btn">創作物
+            <br>
+            <input type="submit" value="投稿" class="post-btn">
+        </div>
+    </div>
+    </div>
+<% end%>

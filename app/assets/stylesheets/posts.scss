@@ -1,0 +1,287 @@
+/*index-main----------------------------------------------------------------------------------*/
+.index-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+/*index-left-----------------------------------------------------------------------------------*/
+.contents-left{
+    float:left;
+    width: 69%;
+    border-right:solid 2px orange;
+}
+
+.maxim-element{
+    width: 70%;
+    height: auto;
+    margin:0 auto;
+    background:rgb(255, 220, 155);
+    box-shadow:10px 10px 15px -10px gray;
+    padding-bottom:20px;
+}
+
+.clearfix::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.maxim{
+    padding-top:10px;
+    padding-left:10px;
+    font-size:25px;
+    white-space:pre-line;
+}
+
+.maxim a{
+    text-decoration: none;
+    color:black;
+}
+
+.maxim-eng{
+    padding-left:10px;
+    padding-bottom:20px;
+    margin:0;
+    font-size:25px;
+    white-space:pre-line;
+}
+
+.author-info{
+    margin:0;
+}
+
+.author-name{
+    float:right;
+    margin:0;
+    padding-right:5%;
+    font-size:18px;
+}
+
+.author-info-br{
+    display: none;
+}
+
+.biography{
+    float:right;
+    margin:0;
+    padding-right:5%;
+    font-size:18px;
+}
+/*index-right----------------------------------------------------------------------------------*/
+.contents-right{
+    float:right;
+    width: 30%;
+}
+
+.contents-right h3{
+    font-size:22px;
+}
+
+.contents-right a{
+    color:black;
+    margin-left:7%;
+    margin-bottom:4%;
+    font-size:18px;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.contents-right a::after{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: orange;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.contents-right a:hover::after{
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+}
+/*error------------------------------------------------------------------------------*/
+.form-error{
+    margin-left:2%;
+    color:white;
+    font-size:20px;
+}
+/*new-------------------------------------------------------------------------------*/
+.new-post-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+
+.form{
+    margin-top: 2%;
+}
+
+.form-body{
+    width: 50%;
+    margin:0 auto;
+    background:rgb(255, 182, 46);
+    box-shadow:10px 10px 15px -10px gray;
+    padding-top:2%;
+    padding-bottom:5%;
+    color:white;
+}
+
+.form-body p{
+    margin-bottom:2%;
+    margin-left:2%;
+    font-size:25px;
+}
+
+.form-body textarea{
+    margin-left:5%;
+    margin-right:5%;
+    width: 90%;
+    height: 4em;
+    border: 1px solid rgb(216, 218, 223);
+    box-shadow:5px 5px 10px -5px gray;
+    font-size:18px;
+    line-height: 20px;
+}
+
+.author-input,.biography-input{
+    margin-left:5%;
+    margin-right:5%;
+    width: 90%;
+    min-height:30px;
+    border: 1px solid rgb(216, 218, 223);
+    box-shadow:5px 5px 10px -5px gray;
+    font-size:18px;
+}
+
+.radio-btn-container{
+    margin-top:2%;
+    margin-left:5%;
+    margin-right:5%;
+    font-size:20px;
+}
+
+.radio-btn{
+    margin-left:2%;
+}
+
+.radio-br{
+    display:none;
+}
+
+.post-btn{
+    margin-top:2%;
+    width: 40%;
+    float:right;
+    font-size:20px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #996300;
+    border: solid 2px #996300;
+    background: white;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.post-btn:hover{
+    background: #996300;
+    color: white;
+}
+/*show-------------------------------------------------------------------------------------*/
+.show-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+
+.btn-container{
+    float:right; 
+    margin:0;
+    padding-top: 2%;
+    padding-right:5%;
+    font-size:18px;
+}
+
+.btn-container a{
+    color:black;
+}
+
+.like-container{
+    float: left;
+    margin-left:5%;
+}
+
+.like-container a{
+    text-decoration:none;
+    color:black;
+}
+
+.fa-heart{
+    font-size:22px;
+}
+
+.like-btn{
+    color:#8899a6;
+}
+
+.like-btn-unlike{
+    color:#ff2581;
+}
+
+.likes-count{
+    font-size:22px;
+}
+/*edit--------------------------------------------------------------------------------------*/
+.edit-post-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+/*レスポンシブ--------------------------------------------------------------------------*/
+@media screen and (max-width:780px){
+    /*画面幅が780px以下の時*/
+    .post-title{
+        margin-top:6%;
+    }
+
+    .contents-left{
+        width: 100%;
+        border-right:none;
+    }
+
+    .maxim-element{
+        width: 95%;
+    }
+
+    .author-info-br{
+        display: block;
+    }
+
+    .contents-right{
+        display:none;
+    }
+
+    .form-body{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:500px){
+    /*画面幅が500px以下の時*/
+    .radio-br{
+        display:block;
+    }
+}

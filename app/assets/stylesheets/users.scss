@@ -1,0 +1,178 @@
+/*共通----------------------------------------------------------------------------------------*/
+#error_explanation{
+    margin:0 auto;
+    width: 90%;
+}
+
+.user-container{
+    width: 100%;
+    height: auto;
+    padding-bottom:40px;
+}
+
+.user-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+
+.user-form{
+    width: 30%;
+    margin:0 auto;
+    background-color:rgb(255, 182, 46);
+    box-shadow:10px 10px 15px -10px gray;
+    padding-top:2%;
+    padding-bottom:3%;
+    color:white;
+}
+
+.field{
+    font-size:22px;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+}
+
+.field input{
+    box-shadow:5px 5px 10px -5px gray;
+    width: 98%;
+    height: 20px;
+}
+
+.field p{
+    margin-bottom:10%;
+}
+
+.user-btn{
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    width: 90%;
+    float:right;
+    font-size:15px;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #996300;
+    border: solid 2px #996300;
+    background: white;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.user-btn:hover{
+    background: #996300;
+    color: white;
+}
+/*login-------------------------------------------------------------------------------------*/
+.field-remember{
+    font-size:20px;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+}
+/*forget------------------------------------------------------------------------*/
+.forget-form{
+    padding-top:5%;
+    padding-bottom:7%;
+}
+/*user-edit----------------------------------------------------------------------*/
+.user-edit-cancel-title{
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+}
+/*user-index---------------------------------------------------------------------*/
+.user-index-container{
+    width: 80%;
+    margin:0 auto;
+    background-color:rgb(255, 182, 46);
+    box-shadow:10px 10px 15px -10px gray;
+    padding-top:2%;
+    padding-bottom:3%;
+    color:white;
+}
+
+.user-table{
+    margin:0 auto;
+    border-collapse: collapse;
+}
+
+.user-table th,.user-table td{
+    padding:10px;
+    text-align: center;
+    border: solid 1.3px black;
+}
+/*links-------------------------------------------------------------------------*/
+.links{
+    float:right;
+    text-decoration: none;
+    margin-right:5%;
+    margin-top:5%;
+    font-size:20px;
+    color:white;
+    position: relative;
+}
+
+.links::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform .3s;
+}
+
+.links:hover::after {
+    transform: scale(1, 1);
+}
+/*レスポンシブ----------------------------------------------------------------------------------------------*/
+@media screen and (max-width:1060px){
+    /*画面幅が1000px以下の時*/
+    .user-form{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:780px){
+    /*画面幅が780px以下の時*/
+    .user-form{
+        width: 70%;
+    }
+
+    .links{
+        font-size:16px;
+    }
+
+    .remember-me{
+        font-size:16px;
+    }
+
+    .user-edit-cancel-title{
+        font-size:16px;
+    }
+}
+
+@media screen and (max-width:500px){
+    /*画面幅が500px以下の時*/
+    .user-form{
+        width: 90%;
+    }
+
+    .field{
+        font-size:16px;
+    }
+
+    .user-index-container{
+        width: 100%;
+    }
+
+    .user-table th,.user-table td{
+        padding:0;
+    }
+}

@@ -1,0 +1,34 @@
+<div class="department-container">
+  <h1 class="department-index-title department-title">カテゴリー一覧</h1>
+  <div class="department-index-container clearfix">
+    <table class="department-table">
+        <tr>
+            <th>カテゴリーID</th>
+            <th>カテゴリー名</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+        <% @departments.each do |department| %>
+            <tr>
+                <td><%= department.id%></td>
+                <td>
+                    <%= link_to("/departments/#{department.id}")do %>
+                        <%= department.category%>
+                    <% end%>
+                </td>
+                <td>
+                    <%= link_to("/departments/#{department.id}/edit")do %>
+                        編集
+                    <% end%>
+                </td>
+                <td>
+                    <%= link_to("/departments/#{department.id}/destroy")do %>
+                        削除
+                    <% end%>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    <%= link_to "カテゴリー作成", "/departments/new", class: "links" %><br />
+  </div>
+</div>

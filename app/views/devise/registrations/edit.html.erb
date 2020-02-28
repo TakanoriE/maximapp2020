@@ -1,0 +1,51 @@
+<div class="user-container">
+  <h1 class="user-edit-title user-title">ユーザー情報編集</h1>
+  <div class="user-edit-form user-form clearfix">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource, class: "error-messages" %>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :username , "ユーザー名" %><br />
+        <%= f.text_field :username, autocomplete: "username" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, "新規パスワード" %> <i>(変更しない場合は空白のままにします)</i><br />
+        <% if @minimum_password_length %>
+          <em class="user-edit-em"><%= @minimum_password_length %>文字以上</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "新規パスワード再入力" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, "現在のパスワード" %> <i>(変更を確認するには現在のパスワードが必要です)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "更新", class: "user-edit-btn user-btn" %>
+      </div>
+    <% end %>
+
+    <br><br><br>
+    <h2 class="user-edit-cancel-title">アカウント削除</h2>
+
+    <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当によろしいですか？" }, method: :delete, class: "user-cancel-btn user-btn" %>
+
+    <%= link_to "戻る", :back , class: "links"%>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="user-container">
+  <h1 class="user-show-title user-title">ユーザー詳細画面</h1>
+  <div class="user-show-form user-form clearfix">
+        <% if user_signed_in? %>
+            <div class="field">
+                <p>ユーザー名 : <%= @user.username%></p>
+                <p>メールアドレス : <%= @user.email %></p>
+                <%= link_to "編集", edit_user_registration_path, class: "edit-link links" %><br />
+            </div>
+        <% end %>
+  </div>
+  <h1 class="user-show-title user-title">いいねした名言</h1>
+  <% @likes.each do|like|%>
+      <% post=Post.find_by(id: like.post_id)%>
+      <div class="maxim-element clearfix">
+        <p class="maxim">
+          <% if user_signed_in? %>
+            <% if current_user.id==1%>
+              <%= link_to(post.content,"/posts/#{post.id}") %>
+            <% else %>
+              <%= post.content%>
+            <% end %>
+          <% else%>
+            <%= post.content%>
+          <% end %>
+        </p>
+        <% if post.content_eng!="" %>
+          <p class="maxim-eng">
+            <%= post.content_eng%>
+          </p>
+        <% end %>
+        <div class="author-info">
+          <p class="author-name">
+            <%= post.author%>
+          </p>
+          <br class="author-info-br">
+          <br class="author-info-br">
+          <p class="biography">
+            <%= post.biography%>
+          </p>
+        </div>
+        <br>
+        <div class="like-container">
+            <% @likes_count=Like.where(post_id: post.id).count%>
+            <% if user_signed_in? %>
+              <% if current_user.id!=1%>
+                <% if Like.find_by(user_id: current_user.id,post_id: post.id) %>
+                  <%= link_to("/posts/#{post.id}/likeUserShow")do %>
+                    <span class="fa fa-heart like-btn-unlike"></span>
+                  <% end%>
+                <% end %>
+              <% else %>
+                <% if Like.find_by(user_id: current_user.id,post_id: post.id) %>
+                  <%= link_to("/posts/#{post.id}")do %>
+                    <span class="fa fa-heart like-btn-unlike"></span>
+                  <% end%>
+                <% else%>
+                  <%= link_to("/posts/#{post.id}")do %>
+                    <span class="fa fa-heart like-btn"></span>
+                  <% end%>
+                <% end %>
+              <% end %>
+              <span class="likes-count"><%= @likes_count%></span>
+            <% end %>
+        </div>
+      </div>
+    <% end%>
+</div>

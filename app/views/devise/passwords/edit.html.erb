@@ -1,0 +1,28 @@
+<div class="user-container">
+  <h1 class="password-edit-title user-title">パスワード変更</h1>
+  <div class="password-edit-form user-form clearfix">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource, class: "error-messages" %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field">
+      <%= f.label :password, "新規パスワード" %><br />
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上)</em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "新規パスワード再入力" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "パスワード変更", class: "password-edit-btn user-btn" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+  </div>
+</div>

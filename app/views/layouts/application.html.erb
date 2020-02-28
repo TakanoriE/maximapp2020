@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>心に沁みる名言</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <img src="/logo.png" alt="">
+        <a href="/" class="header-title"><h1>心に沁みる名言</h1></a>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-list" %>
+          <% if current_user.id==1 %>
+            <a href="/posts/new" class="header-new-post header-list">新規投稿</a>
+            <a href="/departments/index" class="header-list">カテゴリー一覧</a>
+            <a href="/users/index" class="header-list">ユーザー一覧</a>
+          <% end %>
+          <a href="/users/show" class="header-list"><%= current_user.username%></a>
+        <% else%>
+          <%= link_to "新規登録", new_user_registration_path, class: "header-list" %>
+          <%= link_to "ログイン", new_user_session_path, class: "header-list" %>
+        <% end %>
+        <a href="javascript:" class="header-phone-btn"><span class="fa fa-bars menu-icon"></span></a>
+        <a href="javascript:" class="header-phone-btn-close close-btn"><span class="fa fa-bars menu-icon"></span></a>
+        <div class="phone-menu">
+          <% if user_signed_in? %>
+            <a href="/users/show" class="phone-menu-list close-btn"><%= current_user.username%></a>
+            <% if current_user.id==1 %>
+              <a href="/users/index" class="phone-menu-list close-btn">ユーザー一覧</a>
+              <a href="/departments/index" class="phone-menu-list close-btn">カテゴリー一覧</a>
+              <a href="/posts/new" class="phone-menu-list close-btn">新規投稿</a>
+            <% end %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "phone-menu-list close-btn" %><br>
+          <% else%>
+            <%= link_to "ログイン", new_user_session_path, class: "phone-menu-list close-btn" %><br>
+            <%= link_to "新規登録", new_user_registration_path, class: "phone-menu-list close-btn" %><br>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    <main class="main-footer">
+      <% if notice %>
+　　     <div class="flash-notice flash">
+            <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="flash-alert flash">
+          <%= alert %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer class="main-footer">
+      <div class="Copyright">
+        <p>Copyright 2020 Takanori.E All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      $('.header-phone-btn').click(function(){
+        $('.phone-menu').slideToggle();
+        $('.header-phone-btn').css("display","none");
+        $('.header-phone-btn-close').css("display","block");
+      });
+      $('.close-btn').click(function(){
+        $('.phone-menu').slideToggle();
+        $('.header-phone-btn').css("display","block");
+        $('.header-phone-btn-close').css("display","none");
+      });
+      $(function () {
+        $('.main-footer').on('click', function () {
+          if ($('.phone-menu').is(':visible')) {
+            $('.phone-menu').slideToggle();
+            $('.header-phone-btn').css("display","block");
+            $('.header-phone-btn-close').css("display","none");
+          } else {
+            event.stopPropagation();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<h1 class="department-edit-title department-title">カテゴリー編集</h1>
+<%= form_tag("/departments/#{@department.id}/update")do%>
+    <div class="form">
+    <div class="form-body clearfix">
+        <% @department.errors.full_messages.each do |message| %>
+            <div class="form-error">
+            <%= message %>
+            </div>
+        <% end %>
+        <p>カテゴリー名</p>
+        <input type="text" name="category" class="department-new-input" value="<%= @department.category%>">
+        <input type="submit" value="編集" class="department-btn">
+    </div>
+    </div>
+<% end%>

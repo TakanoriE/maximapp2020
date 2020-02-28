@@ -1,0 +1,260 @@
+/*共通------------------------------------------------------------------------------------*/
+*{
+    font-family: 'ＭＳ 明朝', 'MS Mincho','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+}
+
+/*ヘッダ---------------------------------------------------------------------------------*/
+.header{
+    width: 100%;
+    height:50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color: rgb(61, 61, 61);
+    box-shadow:0 5px 14px -7px gray;
+    z-index: 10;
+}
+
+.header img{
+    width: 30px;
+    float: left;
+    padding-left:10px;
+    padding-top:5px;
+    vertical-align: middle;
+}
+
+.header-title{
+    float: left;
+    text-decoration: none;
+    display: block;
+    position: relative;
+}
+
+.header-title h1{
+    display: inline;
+    line-height: 50px;
+    font-size:30px;
+    margin:0;
+    padding-left:5px;
+    color:white;
+}
+
+.header-title h1::before,.header-title h1::after {
+    content:"～";
+}
+
+.header-title::after {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    content:"";
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .3s;
+}
+
+.header-title:hover::after {
+    transform: scale(1, 1);
+}
+
+.header-list{
+    text-decoration: none;
+    color:white;
+    float:right;
+    margin-right:2%;
+    font-size:20px;
+    line-height: 50px;
+    display: block;
+    position: relative;
+}
+
+.header-list::after{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    content:"";
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform .3s;
+}
+
+.header-list:hover::after{
+    transform: scale(1, 1);
+}
+
+.header-phone-btn{
+    text-decoration: none;
+    color:white;
+    float:right;
+    margin-right:5%;
+    font-size:30px;
+    line-height: 50px;
+    display:none;
+}
+
+.header-phone-btn-close{
+    text-decoration: none;
+    color:white;
+    float:right;
+    margin-right:5%;
+    font-size:30px;
+    line-height: 50px;
+    display:none;
+}
+/*phone-menu----------------------------------------------------------------------------------*/
+.phone-menu{
+    display:none;
+    width: 100%;
+    background-color:rgb(61, 61, 61);
+    margin-top:50px;
+    padding-top:2%;
+    border-top:solid 1px white;
+}
+
+.phone-menu-list{
+    text-decoration: none;
+    color:white;
+    margin:0 auto;
+    font-size:22px;
+    text-align:center;
+    display:block;
+    margin-bottom:2%;
+}
+/*flash---------------------------------------------------------------------------------------*/
+.flash{
+    background:orange;
+    line-height: 40px;
+    font-size:20px;
+    color:white;
+    text-align: center;
+}
+
+.flash-notice{
+    margin-top:-36px;
+}
+
+.flash-alert{
+    margin-top:-20px;
+}
+/*メイン---------------------------------------------------------------------------------------*/
+main{
+    height: auto;
+    margin-top:80px;
+    padding-bottom:60px;
+}
+
+.find-container{
+    width: 100%;
+    height: auto;
+    padding-bottom:40px;
+}
+
+.find-container-title{
+    margin-top:3%;
+    margin-left:3%;
+    margin-right:3%;
+    font-size: 27px;
+    border-bottom:solid 2px orange;
+}
+
+.find-container-contents{
+    width: 100%;
+}
+
+.find-container-content{
+    width: 21%;
+    height: auto;
+    background:rgb(255, 223, 165);
+    display: inline-block;
+    text-decoration: none;
+    color:black;
+    margin-top:2%;
+    margin-left:3%;
+}
+
+.find-container-content:hover{
+    background:orange;
+    box-shadow:10px 10px 15px -10px gray;
+    color:white;
+}
+
+.find-container-content img{
+    width: 100%;
+    height: auto;
+}
+
+.find-container-content p{
+    text-align: center;
+    padding-bottom:20px;
+}
+
+/*フッター-------------------------------------------------------------------------------------------*/
+footer{
+    height:100px;
+    background:rgb(61, 61, 61);
+    position: relative;
+    box-shadow:0 -5px 14px -7px gray;
+}
+
+.Copyright{
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    width: 40%;
+    white-space: pre-line;
+    text-align: center;
+    color:white;
+}
+/*レスポンシブ----------------------------------------------------------------------------------------------*/
+@media screen and (max-width:780px){
+    /*画面幅が780px以下の時*/
+    .find-container-title{
+        margin-top:6%;
+    }
+
+    .find-container-content{
+        width: 40%;
+        margin-top:5%;
+        margin-left:6%;
+        box-shadow:10px 10px 15px -10px gray;
+    }
+
+    .header-list{
+        display: none;
+    }
+
+    .header-phone-btn{
+        display:block;
+    }
+}
+
+@media screen and (max-width:500px){
+    /*画面幅が500px以下の時*/
+    .header img{
+        width: 25px;
+        height: auto;
+    }
+
+    .header-title h1{
+        font-size:25px;
+    }
+
+    .find-container-title{
+        font-size: 22px;
+    }
+
+    .find-container-content{
+        font-size:13px;
+    }
+}

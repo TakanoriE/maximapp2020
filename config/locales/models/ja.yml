@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+      user: ユーザー
+    attributes:
+      post:
+        content: 名言
+        content_eng: 名言（英語）
+        author: 発言者
+        biography: 経歴
+        category: カテゴリ
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード再入力
+        current_password: 現在のパスワード
+        username: ユーザー名
+        login: メールアドレスまたはユーザー名
+        remember_me: 次回から自動的にログイン
+      department:
+        category: カテゴリ
