@@ -62,7 +62,7 @@ Rails.application.configure do
   host = 'https://maximapp2020.herokuapp.com/'
   Rails.application.routes.default_url_options[:host] = host
 
-  config.action_mailer.default_url_options = { protocol: 'https' , host: 'https://maximapp2020.herokuapp.com/' }
+  config.action_mailer.default_url_options = {host: 'https://maximapp2020.herokuapp.com/' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
