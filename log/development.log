@@ -44594,3 +44594,91 @@ Processing by HomeController#top as HTML
 Completed 200 OK in 196ms (Views: 166.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2020-02-29 18:54:00 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 520ms (Views: 477.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-02-29 18:54:03 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (54.9ms)
+Completed 200 OK in 281ms (Views: 250.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/password/new" for ::1 at 2020-02-29 18:54:05 +0900
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 285ms (Views: 256.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for ::1 at 2020-02-29 18:54:15 +0900
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQHW7xoyKiareneqULeGWFfqXetQ6allxFLm6WgXRPH3U58WAmDX6fgbRm5fH1/0uHPeesV1W0xN8YoVilrYIQ==", "user"=>{"email"=>"taka9409@gmail.com"}, "commit"=>"パスワード再発行"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "taka9409@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "b731ba0d81592c4d1584e1b3c12babe650d0952b63a5c06f2c76e5ae1738971b"], ["LIMIT", 1]]
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (5.9ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["reset_password_token", "b731ba0d81592c4d1584e1b3c12babe650d0952b63a5c06f2c76e5ae1738971b"], ["reset_password_sent_at", "2020-02-29 18:54:15.850912"], ["updated_at", "2020-02-29 18:54:15.853757"], ["id", 1]]
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (1.0ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 1810.4ms
+Sent mail to taka9409@gmail.com (3565.0ms)
+Date: Sat, 29 Feb 2020 18:54:18 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: taka9409@gmail.com
+Message-ID: <5e5a34ca5e5e0_4b602b2993438279@Lifebook.mail>
+Subject: =?UTF-8?Q?=E3=83=91=E3=82=B9=E3=83=AF=E3=83=BC=E3=83=89=E3=81=AE=E5=86=8D=E8=A8=AD=E5=AE=9A=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PHA+44GT44KT44Gr44Gh44GvIHRha2E5NDA5QGdtYWlsLmNvbeOBleOCkyE8
+L3A+DQoNCjxwPuOBguOBquOBn+OBruODkeOCueODr+ODvOODieOCkuWkieab
+tOOBmeOCi+OBn+OCgeOBruODquODs+OCr+OBjOODquOCr+OCqOOCueODiOOB
+leOCjOOBvuOBl+OBn+OAguS7peS4i+OBruODquODs+OCr+OBi+OCieWkieab
+tOOCkuihjOOBhuOBk+OBqOOBjOOBp+OBjeOBvuOBmeOAgjwvcD4NCg0KPHA+
+PGEgaHJlZj0iaHR0cHM6Ly9tYXhpbWFwcDIwMjAuaGVyb2t1YXBwLmNvbS8v
+dXNlcnMvcGFzc3dvcmQvZWRpdD9yZXNldF9wYXNzd29yZF90b2tlbj1uWkJT
+cjlNTk5LTkQ3MjdZc1loZCI+44OR44K544Ov44O844OJ44KS5aSJ5pu044GZ
+44KLPC9hPjwvcD4NCg0KPHA+44Oq44Kv44Ko44K544OI44GX44Gm44GE44Gq
+44GE5aC05ZCI44Gv44CB44GT44Gu44Oh44O844Or44KS54Sh6KaW44GX44Gm
+44GP44Gg44GV44GE44CCPC9wPg0KPHA+5LiK6KiY44Gu44Oq44Oz44Kv44Gr
+44Ki44Kv44K744K544GX44Gm5paw44GX44GE44OR44K544Ov44O844OJ44KS
+5L2c5oiQ44GZ44KL44G+44Gn44CB44OR44K544Ov44O844OJ44Gv5aSJ5pu0
+44GV44KM44G+44Gb44KT44CCPC9wPg0K
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 6522ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-02-29 18:54:22 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 237ms (Views: 233.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-02-29 19:01:43 +0900
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 173ms (Views: 146.0ms | ActiveRecord: 0.0ms)
+
+
