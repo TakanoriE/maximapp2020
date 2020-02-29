@@ -94,6 +94,6 @@ Rails.application.configure do
 
   config.assets.initialize_on_precompile = false
 
-  config.action_mailer.default_url_options = {host: 'https://maximapp2020.herokuapp.com/' }
+  config.action_mailer.default_url_options = {protocol: 'https', host: 'maximapp2020.herokuapp.com' }
 
 end
