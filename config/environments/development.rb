@@ -59,9 +59,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  host = 'https://maximapp2020.herokuapp.com/'
-  Rails.application.routes.default_url_options[:host] = host
-
   config.action_mailer.default_url_options = {host: 'https://maximapp2020.herokuapp.com/' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
