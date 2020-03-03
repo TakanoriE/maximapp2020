@@ -15,9 +15,15 @@
                 <td><%= user.id%></td>
                 <td><%= user.username%></td>
                 <td><%= user.email%></td>
-                <td><%= user.sign_in_count%></td>
-                <td><%= user.current_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
-                <td><%= user.last_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
+                <% if user.sign_in_count!=nil %>
+                  <td><%= user.sign_in_count%></td>
+                  <td><%= user.current_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
+                  <td><%= user.last_sign_in_at.strftime("%Y-%m-%d %H:%M")%></td>
+                <%else%>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                <% end %>
             </tr>
         <% end %>
     </table>
