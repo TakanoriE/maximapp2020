@@ -217,6 +217,33 @@ footer{
     color:white;
 }
 /*レスポンシブ----------------------------------------------------------------------------------------------*/
+@media screen and (max-width:1025px){
+    /*画面幅が1025px以下の時*/
+    .header-title:hover::after {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        content:"";
+        width: 100%;
+        height: 2px;
+        background: white;
+        transform: scale(0, 1);
+        transform-origin: left top;
+        transition: transform .3s;
+    }
+
+    .find-container-content:hover{
+        width: 21%;
+        height: auto;
+        background:rgb(255, 223, 165);
+        display: inline-block;
+        text-decoration: none;
+        color:black;
+        margin-top:2%;
+        margin-left:3%;
+    }
+}
+
 @media screen and (max-width:780px){
     /*画面幅が780px以下の時*/
     .find-container-title{

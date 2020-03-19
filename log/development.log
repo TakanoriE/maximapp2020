@@ -46932,3 +46932,19 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 357ms (Views: 296.7ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for ::1 at 2020-03-06 10:55:14 +0900
+Started GET "/" for ::1 at 2020-03-06 10:55:14 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#top as HTML
+Processing by HomeController#top as HTML
+  Rendering home/top.html.erb within layouts/application
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (12.3ms)
+  Rendered home/top.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 1726ms (Views: 1575.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1727ms (Views: 1573.2ms | ActiveRecord: 0.0ms)
+
+

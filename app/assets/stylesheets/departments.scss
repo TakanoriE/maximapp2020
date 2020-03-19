@@ -87,3 +87,34 @@
     box-shadow:5px 5px 10px -5px gray;
     font-size:18px;
 }
+
+@media screen and (max-width:1025px){
+    /*画面幅が1025px以下の時*/
+    .department-table td a:hover::after {
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: white;
+        transform: scale(0, 1);
+        transform-origin: center top;
+        transition: transform .3s;
+    }
+
+    .department-btn:hover{
+        margin-top:10%;
+        margin-right:5%;
+        width: 40%;
+        float:right;
+        font-size:20px;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        color: #996300;
+        border: solid 2px #996300;
+        background: white;
+        border-radius: 3px;
+        transition: .4s;
+    }
+}
